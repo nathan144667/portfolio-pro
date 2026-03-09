@@ -7,7 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-app.use(cors());
+app.use(cors({
+    origin: 'https://nathan144667.github.io'
+}));
 app.use(express.json());
 
 app.get('/', (req, res) => {
