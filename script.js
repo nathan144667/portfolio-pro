@@ -118,4 +118,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ---------------------------------------------------------
+    // 4. GESTION DES INFOBULLES (TOOLTIPS) SUR MOBILE
+    // ---------------------------------------------------------
+    const badges = document.querySelectorAll('.badge');
+
+    badges.forEach(badge => {
+        // Au clic/toucher sur un badge
+        badge.addEventListener('click', (e) => {
+            // Empêcher la propagation pour ne pas déclencher la fermeture globale immédiatement
+            e.stopPropagation();
+
+            // Fermer tous les autres tooltips ouverts pour n'en garder qu'un seul visible à la fois sur mobile
+            badges.forEach(b => {
+                if(b !== badge) {
+                    b.classList.remove('active-tooltip');
+                }
+            });
+
+            // Basculer l'état du badge cliqué
+            badge.classList.toggle('active-tooltip');
+        });
+    });
+
+    // Fermer l'infobulle ouverte si on clique/touche ailleurs sur la page
+    document.addEventListener('click', () => {
+        badges.forEach(badge => badge.classList.remove('active-tooltip'));
+    });
+
 });

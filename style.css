@@ -260,12 +260,67 @@ body {
     font-weight: 500;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     transition: var(--transition);
+    position: relative;
+    cursor: pointer;
 }
 
 .badge:hover {
     transform: translateY(-3px);
     background-color: var(--color-accent-hover);
     box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* Infobulle - Texte */
+.badge::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: calc(100% + 12px); /* Espace pour la flèche */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px); /* Animation de bas en haut */
+    background-color: var(--color-accent);
+    color: white;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 400;
+    white-space: normal;
+    text-align: center;
+    width: max-content;
+    max-width: 220px;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    line-height: 1.4;
+}
+
+/* Infobulle - Petite flèche */
+.badge::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 6px); /* Colle parfaitement au bottom du ::after */
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    border-width: 6px;
+    border-style: solid;
+    border-color: var(--color-accent) transparent transparent transparent;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+}
+
+/* Affichage de l'infobulle au survol (PC) ou via classe active (Mobile) */
+.badge:hover::after,
+.badge:hover::before,
+.badge.active-tooltip::after,
+.badge.active-tooltip::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
 }
 
 /* =========================================
