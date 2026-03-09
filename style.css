@@ -1,0 +1,378 @@
+/* =========================================
+   VARIABLES GLOBALES (Pour changer facilement les couleurs)
+   ========================================= */
+   :root {
+    --color-bg: #FFFFFF;           /* Fond principal (Blanc) */
+    --color-bg-light: #F8F9FA;     /* Fond secondaire léger (Gris très clair) */
+    --color-text: #1a1a1a;         /* Texte principal (Presque noir) */
+    --color-text-muted: #4a5568;   /* Texte secondaire */
+    --color-accent: #0A2540;       /* Couleur d'accent (Bleu foncé, très pro) */
+    --color-accent-hover: #123e6b; /* Accent plus clair au survol */
+    --font-main: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+/* =========================================
+   RESET BASIQUE
+   Annule les marges par défaut des navigateurs
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Les bords et padding sont inclus dans la largeur/hauteur */
+}
+
+/* Scroll fluide quand on clique sur une ancre */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    line-height: 1.6;
+}
+
+/* =========================================
+   LAYOUT (Mise en page générale)
+   ========================================= */
+.container {
+    width: 90%;
+    max-width: 1100px; /* On limite la largeur sur grand écran */
+    margin: 0 auto;    /* Centre le contenu */
+}
+
+.section {
+    padding: 6rem 0; /* Espace vertical généreux pour faire respirer le design */
+}
+
+.bg-light {
+    background-color: var(--color-bg-light);
+}
+
+.section-title {
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--color-accent);
+}
+
+/* =========================================
+   BOUTONS
+   ========================================= */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--color-accent);
+    color: #FFF;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px; /* Bords légèrement arrondis */
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px); /* Léger mouvement vers le haut au survol */
+}
+
+/* =========================================
+   HEADER & NAVIGATION
+   ========================================= */
+.header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px); /* Effet "verre" moderne */
+    position: fixed; /* Reste en haut au défilement */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Légère ombre */
+}
+
+.logo a {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-menu ul {
+    list-style: none; /* Enlève les puces de la liste */
+    display: flex;
+    align-items: center;
+    gap: 2rem; /* Espace entre les liens */
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.nav-menu a:hover:not(.btn-primary) {
+    color: var(--color-accent);
+}
+
+.menu-toggle {
+    display: none; /* Caché sur ordinateur */
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-accent);
+    transition: var(--transition);
+}
+
+/* =========================================
+   HERO SECTION
+   ========================================= */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: var(--color-bg);
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =========================================
+   À PROPOS
+   ========================================= */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-muted);
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+}
+
+/* =========================================
+   SERVICES (Grille / Cartes)
+   ========================================= */
+.services-grid {
+    display: grid;
+    /* Crée des colonnes responsives automatiquement */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background: var(--color-bg);
+    padding: 2.5rem 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05); /* Bordure très discrète */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Monte légèrement au survol */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.08); /* Ombre plus forte */
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.card h3 {
+    margin-bottom: 1rem;
+    color: var(--color-accent);
+}
+
+.card p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+/* =========================================
+   PROCESSUS (Timeline horizontale)
+   ========================================= */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.timeline-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    background-color: var(--color-accent);
+    color: white;
+    border-radius: 50%; /* Cercle parfait */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto 1rem auto;
+}
+
+.timeline-step h4 {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+.timeline-step p {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   CONTACT
+   ========================================= */
+.contact-container {
+    max-width: 600px;
+}
+
+.contact-subtitle {
+    text-align: center;
+    margin-top: -2rem;
+    margin-bottom: 3rem;
+    color: var(--color-text-muted);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: var(--font-main);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1); /* Lueur de focus */
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+.footer {
+    background-color: var(--color-accent);
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    font-size: 0.9rem;
+}
+
+/* =========================================
+   ANIMATIONS JAVASCRIPT
+   ========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobiles & Tablettes)
+   ========================================= */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Affiche le bouton hamburger */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-bg);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        display: none; /* Caché par défaut en mobile */
+    }
+
+    .nav-menu.active {
+        display: block; /* S'affiche quand la classe 'active' est ajoutée par le JS */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        padding: 2rem 0;
+        gap: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .timeline {
+        flex-direction: column; /* La timeline devient verticale sur mobile */
+        gap: 3rem;
+    }
+}
