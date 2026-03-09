@@ -1,6 +1,6 @@
 // Attendre que tout le document HTML soit chargé avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // ---------------------------------------------------------
     // 1. MENU MOBILE (Burger Menu)
     // ---------------------------------------------------------
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // On récupère le bouton pour changer son texte pendant l'envoi
             const submitButton = contactForm.querySelector('.btn-submit');
             const originalButtonText = submitButton.innerText;
-            
+
             // Changement purement visuel pour l'utilisateur
             submitButton.innerText = 'Envoi en cours...';
             submitButton.disabled = true;
@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            
+
             try {
                 // 1. Préparation des données à envoyer au format Objet JS
                 const formData = {
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
 
                 // 2. Appel au serveur Node.js distant (API Fetch)
-                const response = await fetch('http://localhost:3000/api/contact', {
+                const response = await fetch('https://portfolio-pro-st6f.onrender.com/api/contact', {
                     method: 'POST', // Le type de requête (Envoi de données)
                     headers: {
                         'Content-Type': 'application/json' // On indique qu'on parle en format JSON
