@@ -40,6 +40,14 @@ app.post('/api/contact', async (req, res) => {
             `
         });
 
+        // Email de réponse automatique à l'expéditeur
+        await resend.emails.send({
+            from: 'onboarding@resend.dev',
+            to: email,
+            subject: 'Merci pour votre message — Nathan Cottais',
+            html: `<p>Bonjour, merci pour l'intérêt que vous portez à mon travail. J'ai bien reçu votre message et vous répondrai dans les plus brefs délais. À très bientôt, Nathan Cottais.</p>`
+        });
+
         res.status(200).json({
             success: true,
             message: "Votre message a été envoyé avec succès !"
