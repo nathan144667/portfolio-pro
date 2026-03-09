@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <!-- Le viewport permet d'adapter l'affichage sur les appareils mobiles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio | Développeur & IA</title>
+    
+    <!-- Importation d'une police moderne (Inter) depuis Google Fonts pour un look professionnel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lien vers notre fichier CSS séparé -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. HEADER & NAVIGATION -->
+    <header class="header">
+        <div class="logo">
+            <a href="#">Mon Portfolio</a>
+        </div>
+        <nav class="nav-menu">
+            <ul>
+                <!-- Liens vers les ancres de la page (les ID des sections) -->
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#process">Processus</a></li>
+                <li><a href="#contact" class="btn-primary">Me contacter</a></li>
+            </ul>
+        </nav>
+        <!-- Bouton pour le menu mobile (burger menu) -->
+        <button class="menu-toggle" aria-label="Ouvrir le menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <main>
+        <!-- SECTION HERO (Accueil) -->
+        <section class="hero">
+            <div class="container">
+                <h1>Créons l'avenir ensemble</h1>
+                <p>Développeur Web, Expert en Automatisation & Intelligence Artificielle.</p>
+                <a href="#services" class="btn-primary">Découvrir mes services</a>
+            </div>
+        </section>
+
+        <!-- 2. SECTION À PROPOS -->
+        <section id="about" class="section fade-in">
+            <div class="container">
+                <h2 class="section-title">À propos de moi</h2>
+                <div class="about-content">
+                    <p>Passionné par la technologie et l'innovation, j'accompagne les entreprises dans leur transformation numérique. Ma vision est simple : la technologie doit être un levier pour simplifier le travail humain, et non un obstacle.</p>
+                    <p>Je crois en un design minimaliste, un code robuste et une automatisation intelligente pour vous permettre de vous concentrer sur l'essentiel.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. SECTION SERVICES -->
+        <section id="services" class="section bg-light fade-in">
+            <div class="container">
+                <h2 class="section-title">Mes Services</h2>
+                <div class="services-grid">
+                    
+                    <!-- Carte 1 -->
+                    <div class="card">
+                        <div class="card-icon">💻</div>
+                        <h3>Développement Web</h3>
+                        <p>Création de sites vitrines et d'applications web performantes, modernes et adaptées à tous les écrans (responsive design).</p>
+                    </div>
+
+                    <!-- Carte 2 -->
+                    <div class="card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Automatisation</h3>
+                        <p>Gain de temps par l'automatisation de vos tâches répétitives via des scripts sur mesure et l'intégration d'API (Make, Zapier, Python).</p>
+                    </div>
+
+                    <!-- Carte 3 -->
+                    <div class="card">
+                        <div class="card-icon">🤖</div>
+                        <h3>Intelligence Artificielle</h3>
+                        <p>Intégration de solutions IA (LLM, chatbots, analyse de données) dans vos processus pour augmenter votre productivité.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. SECTION PROCESSUS -->
+        <section id="process" class="section fade-in">
+            <div class="container">
+                <h2 class="section-title">Comment je travaille</h2>
+                <div class="timeline">
+                    
+                    <div class="timeline-step">
+                        <div class="step-number">1</div>
+                        <h4>Analyse du besoin</h4>
+                        <p>Compréhension de vos défis et définition d'un cahier des charges clair.</p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">2</div>
+                        <h4>Développement</h4>
+                        <p>Conception et création de la solution avec des points d'étapes réguliers.</p>
+                    </div>
+
+                    <div class="timeline-step">
+                        <div class="step-number">3</div>
+                        <h4>Test & Livraison</h4>
+                        <p>Validation rigoureuse, mise en production et accompagnement à la prise en main.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. SECTION CONTACT -->
+        <section id="contact" class="section bg-light fade-in">
+            <div class="container contact-container">
+                <h2 class="section-title">Prenons contact</h2>
+                <p class="contact-subtitle">Un projet en tête ? N'hésitez pas à m'écrire.</p>
+                
+                <!-- Formulaire simple -->
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom / Entreprise</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse e-mail</label>
+                        <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Comment puis-je vous aider ?"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary btn-submit">Envoyer le message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 6. FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Lien vers notre fichier JavaScript séparé, chargé à la fin pour ne pas bloquer l'affichage -->
+    <script src="script.js"></script>
+</body>
+</html>
