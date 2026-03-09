@@ -6,38 +6,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------------------------------
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
-    const menuClose = document.querySelector('.menu-close');
-    const navOverlay = document.querySelector('.nav-overlay');
 
-    // Fonction pour ouvrir le menu
-    const openMenu = () => {
-        navMenu.classList.add('active');
-        navOverlay.classList.add('active');
-    };
+    // Quand on clique sur l'icône du menu (bouton 3 lignes) sur téléphone
+    menuToggle.addEventListener('click', () => {
+        // Alterne la présence de la classe "active" (affiche/cache le menu)
+        navMenu.classList.toggle('active');
+    });
 
-    // Fonction pour fermer le menu
-    const closeMenu = () => {
-        navMenu.classList.remove('active');
-        navOverlay.classList.remove('active');
-    };
-
-    // Ouvrir avec le bouton burger
-    menuToggle.addEventListener('click', openMenu);
-
-    // Fermer avec le bouton croix
-    if (menuClose) {
-        menuClose.addEventListener('click', closeMenu);
-    }
-
-    // Fermer en cliquant sur l'overlay sombre
-    if (navOverlay) {
-        navOverlay.addEventListener('click', closeMenu);
-    }
-
-    // Fermer le menu si on clique sur un lien
+    // Fermer le menu si on clique sur un lien (sur mobile)
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.addEventListener('click', closeMenu);
+        link.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+        });
     });
 
 
