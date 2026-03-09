@@ -153,7 +153,7 @@ body {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: var(--color-accent);
+    background-color: var(--color-text); /* Changé en noir/couleur texte */
     transition: var(--transition);
 }
 
