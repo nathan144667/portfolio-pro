@@ -28,7 +28,7 @@ app.post('/api/contact', async (req, res) => {
         }
 
         await resend.emails.send({
-            from: 'onboarding@resend.dev',
+            from: 'contact@nathancottais.fr',
             to: 'nathan.cottais@gmail.com',
             subject: `Portfolio : Nouveau message de ${name}`,
             html: `
@@ -42,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
 
         // Email de réponse automatique à l'expéditeur
         await resend.emails.send({
-            from: 'onboarding@resend.dev',
+            from: 'contact@nathancottais.fr',
             to: email,
             subject: 'Merci pour votre message — Nathan Cottais',
             html: `<p>Bonjour, merci pour l'intérêt que vous portez à mon travail. J'ai bien reçu votre message et vous répondrai dans les plus brefs délais. À très bientôt, Nathan Cottais.</p>`
