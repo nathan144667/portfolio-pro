@@ -549,3 +549,11 @@ footer {
     color: #888;
     background: #0a0a0a;
 }
+
+.section.fade-in {
+    background: #ffffff;
+}
+
+.section-title {
+    color: #1a1a1a !important;
+}
