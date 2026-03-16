@@ -6,6 +6,179 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Nathan Cottais</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        .services-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-detail-card {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #2a2a4a;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(108, 99, 255, 0.2);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+
+        .service-detail-card h3 {
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .service-detail-card p {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .service-includes {
+            list-style: none;
+            padding: 0;
+            margin: 16px 0;
+        }
+
+        .service-includes li {
+            color: #ccc;
+            padding: 6px 0;
+            font-size: 0.9rem;
+        }
+
+        .service-includes li::before {
+            content: "✓ ";
+            color: #6c63ff;
+            font-weight: bold;
+        }
+
+        .service-price {
+            display: inline-block;
+            background: #6c63ff;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Process section */
+        .process-section {
+            margin-top: 80px;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .process-step {
+            background: #1a1a2e;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            border: 1px solid #2a2a4a;
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: #6c63ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+            margin: 0 auto 16px;
+        }
+
+        .process-step h4 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .process-step p {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* FAQ */
+        .faq-section {
+            margin-top: 80px;
+        }
+
+        .faq-item {
+            background: #1a1a2e;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid #2a2a4a;
+            cursor: pointer;
+        }
+
+        .faq-item h4 {
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .faq-item p {
+            color: #aaa;
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 80px;
+            padding: 60px;
+            background: #1a1a2e;
+            border-radius: 20px;
+            border: 1px solid #2a2a4a;
+        }
+
+        .cta-section h3 {
+            color: #fff;
+            font-size: 1.8rem;
+            margin-bottom: 16px;
+        }
+
+        .cta-section p {
+            color: #aaa;
+            margin-bottom: 30px;
+        }
+
+        .btn-cta {
+            background: #6c63ff;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background: #5a52d5;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +188,8 @@
             <ul class="nav-links">
                 <li><a href="index.html">Accueil</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,29 +197,137 @@
     <main>
         <section class="section fade-in">
             <div class="container">
+
+                <!-- Titre -->
                 <h2 class="section-title">Mes Services</h2>
+                <p style="text-align:center; color:#aaa; max-width:600px; margin: 0 auto;">
+                    Je crée des sites web professionnels et des automatisations sur mesure pour les entreprises qui
+                    veulent gagner du temps et attirer plus de clients.
+                </p>
 
-                <div class="services-grid">
+                <!-- Cards services -->
+                <div class="services-detail">
 
-                    <div class="service-card">
+                    <div class="service-detail-card">
+                        <div class="service-icon">🖥️</div>
                         <h3>Site Vitrine</h3>
-                        <p>Un site professionnel pour présenter votre activité et attirer de nouveaux clients.</p>
-                        <p><strong>À partir de 400€</strong></p>
+                        <p>Un site professionnel une page pour présenter votre activité, vos services et vos
+                            coordonnées. Idéal pour les artisans, coaches et petites entreprises.</p>
+                        <ul class="service-includes">
+                            <li>Design moderne et responsive</li>
+                            <li>Formulaire de contact</li>
+                            <li>Nom de domaine personnalisé</li>
+                            <li>Optimisation mobile</li>
+                            <li>Mise en ligne incluse</li>
+                        </ul>
+                        <span class="service-price">À partir de 400€</span>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-detail-card">
+                        <div class="service-icon">📄</div>
                         <h3>Site Multi-pages</h3>
-                        <p>Un site complet avec plusieurs pages pour une présence web plus complète.</p>
-                        <p><strong>À partir de 800€</strong></p>
+                        <p>Un site complet avec plusieurs pages dédiées — Accueil, Services, Galerie, Contact — pour une
+                            présence web plus professionnelle et complète.</p>
+                        <ul class="service-includes">
+                            <li>Jusqu'à 5 pages sur mesure</li>
+                            <li>Navigation fluide entre les pages</li>
+                            <li>Galerie de projets</li>
+                            <li>Formulaire de contact avancé</li>
+                            <li>Design cohérent sur toutes les pages</li>
+                        </ul>
+                        <span class="service-price">À partir de 800€</span>
                     </div>
 
-                    <div class="service-card">
+                    <div class="service-detail-card">
+                        <div class="service-icon">⚙️</div>
                         <h3>Automatisation</h3>
-                        <p>Automatisez vos tâches répétitives avec Make ou n8n pour gagner du temps.</p>
-                        <p><strong>À partir de 300€</strong></p>
+                        <p>Automatisez vos tâches répétitives avec Make ou n8n — envoi de factures, notifications,
+                            synchronisation de données — pour vous concentrer sur votre cœur de métier.</p>
+                        <ul class="service-includes">
+                            <li>Analyse de vos processus actuels</li>
+                            <li>Création de workflows sur mesure</li>
+                            <li>Connexion entre vos outils</li>
+                            <li>Tests et validation</li>
+                            <li>Formation à l'utilisation</li>
+                        </ul>
+                        <span class="service-price">À partir de 300€</span>
                     </div>
 
                 </div>
+
+                <!-- Process -->
+                <div class="process-section">
+                    <h2 class="section-title">Comment je travaille</h2>
+                    <div class="process-steps">
+
+                        <div class="process-step">
+                            <div class="step-number">1</div>
+                            <h4>Appel découverte</h4>
+                            <p>On échange 30 minutes pour comprendre votre projet, vos besoins et vos objectifs. C'est
+                                gratuit et sans engagement.</p>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">2</div>
+                            <h4>Devis</h4>
+                            <p>Je vous envoie un devis détaillé avec le prix, les délais et le contenu exact de ce qui
+                                sera réalisé.</p>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">3</div>
+                            <h4>Réalisation</h4>
+                            <p>Je crée votre site ou automatisation en vous tenant informé à chaque étape. Vous validez
+                                avant la mise en ligne.</p>
+                        </div>
+
+                        <div class="process-step">
+                            <div class="step-number">4</div>
+                            <h4>Livraison</h4>
+                            <p>Votre projet est mis en ligne. Je vous accompagne pour la prise en main et reste
+                                disponible pour toute question.</p>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- FAQ -->
+                <div class="faq-section">
+                    <h2 class="section-title">Questions fréquentes</h2>
+
+                    <div class="faq-item">
+                        <h4>⏱️ Combien de temps prend la création d'un site ?</h4>
+                        <p>Un site vitrine est livré en 5 à 7 jours. Un site multi-pages prend généralement 2 à 3
+                            semaines selon la complexité.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>💳 Comment se passe le paiement ?</h4>
+                        <p>Je demande 50% à la commande et 50% à la livraison. Le paiement se fait par virement
+                            bancaire.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>🔧 Est-ce que vous assurez la maintenance ?</h4>
+                        <p>Oui, je propose un suivi mensuel optionnel pour mettre à jour votre site et corriger
+                            d'éventuels problèmes.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h4>📱 Le site sera-t-il visible sur mobile ?</h4>
+                        <p>Absolument, tous mes sites sont responsive — ils s'adaptent parfaitement aux téléphones,
+                            tablettes et ordinateurs.</p>
+                    </div>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="cta-section">
+                    <h3>Prêt à lancer votre projet ?</h3>
+                    <p>Contactez-moi dès aujourd'hui pour un appel découverte gratuit de 30 minutes.</p>
+                    <a href="contact.html" class="btn-cta">Demander un devis gratuit 🚀</a>
+                </div>
+
             </div>
         </section>
     </main>
