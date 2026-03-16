@@ -7,11 +7,50 @@
     <title>Contact | Nathan Cottais</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        .contact-hero {
+            text-align: center;
+            padding: 40px 0 20px;
+        }
+
+        .contact-hero h2 {
+            color: #fff;
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .contact-hero p {
+            color: #aaa;
+            font-size: 1.1rem;
+            max-width: 580px;
+            margin: 0 auto 30px;
+            line-height: 1.7;
+        }
+
+        .reassurance-badges {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            background: #1a1a2e;
+            border: 1px solid #2a2a4a;
+            border-radius: 30px;
+            padding: 10px 20px;
+            color: #ccc;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .contact-wrapper {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 60px;
-            margin-top: 40px;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
@@ -24,12 +63,6 @@
             color: #fff;
             font-size: 1.4rem;
             margin-bottom: 20px;
-        }
-
-        .contact-info p {
-            color: #aaa;
-            line-height: 1.8;
-            margin-bottom: 30px;
         }
 
         .contact-detail {
@@ -56,6 +89,71 @@
             margin: 0;
         }
 
+        /* Témoignages */
+        .temoignages {
+            margin-top: 40px;
+        }
+
+        .temoignages h3 {
+            color: #fff;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .temoignage-card {
+            background: #1a1a2e;
+            border: 1px solid #2a2a4a;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .temoignage-stars {
+            color: #f5c518;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .temoignage-card p {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .temoignage-author {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .author-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #6c63ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        .author-info span {
+            display: block;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .author-info small {
+            color: #888;
+            font-size: 0.8rem;
+        }
+
+        /* Formulaire */
         .contact-form {
             display: flex;
             flex-direction: column;
@@ -101,15 +199,22 @@
             background: #1a1a2e;
         }
 
+        .form-note {
+            color: #888;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
         .btn-submit {
             background: #6c63ff;
             color: #fff;
             border: none;
-            padding: 14px 32px;
+            padding: 16px 32px;
             border-radius: 8px;
-            font-size: 1rem;
+            font-size: 1.05rem;
             cursor: pointer;
             transition: background 0.3s, transform 0.2s;
+            font-weight: bold;
         }
 
         .btn-submit:hover {
@@ -145,57 +250,103 @@
     <main>
         <section class="section fade-in">
             <div class="container">
-                <h2 class="section-title">Contactez-moi</h2>
+
+                <!-- Hero contact -->
+                <div class="contact-hero">
+                    <h2 class="section-title">Parlons de votre projet 🚀</h2>
+                    <p>Vous avez une idée, un projet ou une question ? Je vous réponds personnellement sous 24h. L'appel
+                        découverte est <strong style="color:#6c63ff">100% gratuit et sans engagement.</strong></p>
+
+                    <div class="reassurance-badges">
+                        <div class="badge">✅ Réponse sous 24h</div>
+                        <div class="badge">🎯 Appel découverte gratuit</div>
+                        <div class="badge">🔒 Sans engagement</div>
+                        <div class="badge">💬 Devis détaillé offert</div>
+                    </div>
+                </div>
 
                 <div class="contact-wrapper">
 
+                    <!-- Infos + témoignages -->
                     <div class="contact-info">
-                        <h3>Parlons de votre projet</h3>
-                        <p>Vous avez un projet en tête ? Une question ? N'hésitez pas à me contacter, je vous réponds
-                            sous 24h.</p>
+                        <h3>Mes coordonnées</h3>
 
                         <div class="contact-detail">
                             <div class="icon">📧</div>
                             <p>nathan.cottais@email.com</p>
                         </div>
-
                         <div class="contact-detail">
                             <div class="icon">📍</div>
                             <p>France — disponible en remote</p>
                         </div>
-
                         <div class="contact-detail">
                             <div class="icon">⏱️</div>
-                            <p>Réponse sous 24h</p>
+                            <p>Réponse sous 24h garantie</p>
+                        </div>
+
+                        <!-- Témoignages -->
+                        <div class="temoignages">
+                            <h3>⭐ Ce que disent mes clients</h3>
+
+                            <div class="temoignage-card">
+                                <div class="temoignage-stars">★★★★★</div>
+                                <p>"Nathan a créé notre site vitrine en moins d'une semaine. Résultat impeccable, très
+                                    professionnel et à l'écoute. Je recommande !"</p>
+                                <div class="temoignage-author">
+                                    <div class="author-avatar">ML</div>
+                                    <div class="author-info">
+                                        <span>Marie L.</span>
+                                        <small>Gérante — Salon de coiffure</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="temoignage-card">
+                                <div class="temoignage-stars">★★★★★</div>
+                                <p>"L'automatisation de notre facturation nous fait gagner 3h par semaine.
+                                    Investissement rentabilisé dès le premier mois !"</p>
+                                <div class="temoignage-author">
+                                    <div class="author-avatar">TB</div>
+                                    <div class="author-info">
+                                        <span>Thomas B.</span>
+                                        <small>Fondateur — Agence marketing</small>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
+                    <!-- Formulaire -->
                     <div>
                         <form class="contact-form" onsubmit="sendMessage(event)">
                             <div class="form-group">
-                                <label>Votre nom</label>
+                                <label>Votre nom *</label>
                                 <input type="text" id="name" placeholder="Jean Dupont" required>
                             </div>
                             <div class="form-group">
-                                <label>Votre email</label>
+                                <label>Votre email *</label>
                                 <input type="email" id="email" placeholder="jean@exemple.fr" required>
                             </div>
                             <div class="form-group">
                                 <label>Type de projet</label>
                                 <select id="projet">
                                     <option value="">Choisissez...</option>
-                                    <option value="vitrine">Site vitrine</option>
-                                    <option value="multipage">Site multi-pages</option>
-                                    <option value="automatisation">Automatisation</option>
-                                    <option value="autre">Autre</option>
+                                    <option value="vitrine">Site vitrine — à partir de 400€</option>
+                                    <option value="multipage">Site multi-pages — à partir de 800€</option>
+                                    <option value="automatisation">Automatisation — à partir de 300€</option>
+                                    <option value="autre">Autre / Je ne sais pas encore</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label>Votre message</label>
-                                <textarea id="message" placeholder="Décrivez votre projet..." required></textarea>
+                                <label>Votre message *</label>
+                                <textarea id="message" placeholder="Décrivez votre projet en quelques lignes..."
+                                    required></textarea>
                             </div>
-                            <button type="submit" class="btn-submit">Envoyer le message 🚀</button>
-                            <div class="success-msg" id="success">✅ Message envoyé ! Je vous réponds sous 24h.</div>
+                            <p class="form-note">🔒 Vos données sont confidentielles et ne seront jamais partagées.</p>
+                            <button type="submit" class="btn-submit">Envoyer ma demande 🚀</button>
+                            <div class="success-msg" id="success">✅ Message envoyé ! Je vous réponds personnellement
+                                sous 24h.</div>
                         </form>
                     </div>
 
