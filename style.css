@@ -1,35 +1,23 @@
-/* =========================================
+/*tooltip =========================================
    VARIABLES GLOBALES (Pour changer facilement les couleurs)
    ========================================= */
 :root {
     --color-bg: #FFFFFF;
-    /* Fond principal (Blanc) */
     --color-bg-light: #F8F9FA;
-    /* Fond secondaire léger (Gris très clair) */
     --color-text: #1a1a1a;
-    /* Texte principal (Presque noir) */
     --color-text-muted: #4a5568;
-    /* Texte secondaire */
     --color-accent: #0A2540;
-    /* Couleur d'accent (Bleu foncé, très pro) */
     --color-accent-hover: #123e6b;
-    /* Accent plus clair au survol */
     --font-main: 'Inter', sans-serif;
     --transition: all 0.3s ease;
 }
 
-/* =========================================
-   RESET BASIQUE
-   Annule les marges par défaut des navigateurs
-   ========================================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Les bords et padding sont inclus dans la largeur/hauteur */
 }
 
-/* Scroll fluide quand on clique sur une ancre */
 html {
     scroll-behavior: smooth;
 }
@@ -41,20 +29,15 @@ body {
     line-height: 1.6;
 }
 
-/* =========================================
-   LAYOUT (Mise en page générale)
-   ========================================= */
 .container {
     width: 90%;
     max-width: 1100px;
-    /* On limite la largeur sur grand écran */
     margin: 0 auto;
-    /* Centre le contenu */
 }
 
 .section {
     padding: 6rem 0;
-    /* Espace vertical généreux pour faire respirer le design */
+    background-color: #ffffff;
 }
 
 .bg-light {
@@ -68,16 +51,12 @@ body {
     color: var(--color-accent);
 }
 
-/* =========================================
-   BOUTONS
-   ========================================= */
 .btn-primary {
     display: inline-block;
     background-color: var(--color-accent);
     color: #FFF;
     padding: 0.8rem 1.5rem;
     border-radius: 6px;
-    /* Bords légèrement arrondis */
     text-decoration: none;
     font-weight: 600;
     border: none;
@@ -88,18 +67,12 @@ body {
 .btn-primary:hover {
     background-color: var(--color-accent-hover);
     transform: translateY(-2px);
-    /* Léger mouvement vers le haut au survol */
 }
 
-/* =========================================
-   HEADER & NAVIGATION
-   ========================================= */
 .header {
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    /* Effet "verre" moderne */
     position: fixed;
-    /* Reste en haut au défilement */
     top: 0;
     width: 100%;
     z-index: 1000;
@@ -108,7 +81,6 @@ body {
     align-items: center;
     padding: 1rem 5%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    /* Légère ombre */
 }
 
 .logo a {
@@ -121,11 +93,9 @@ body {
 
 .nav-menu ul {
     list-style: none;
-    /* Enlève les puces de la liste */
     display: flex;
     align-items: center;
     gap: 2rem;
-    /* Espace entre les liens */
 }
 
 .nav-menu a {
@@ -141,7 +111,6 @@ body {
 
 .menu-toggle {
     display: none;
-    /* Caché sur ordinateur */
     background: none;
     border: none;
     cursor: pointer;
@@ -157,9 +126,6 @@ body {
     transition: var(--transition);
 }
 
-/* =========================================
-   HERO SECTION
-   ========================================= */
 .hero {
     height: 100vh;
     display: flex;
@@ -184,9 +150,6 @@ body {
     margin-right: auto;
 }
 
-/* =========================================
-   À PROPOS
-   ========================================= */
 .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -199,12 +162,8 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* =========================================
-   SERVICES (Grille / Cartes)
-   ========================================= */
 .services-grid {
     display: grid;
-    /* Crée des colonnes responsives automatiquement */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
@@ -216,14 +175,11 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     border: 1px solid rgba(0, 0, 0, 0.05);
-    /* Bordure très discrète */
 }
 
 .card:hover {
     transform: translateY(-5px);
-    /* Monte légèrement au survol */
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.08);
-    /* Ombre plus forte */
 }
 
 .card-icon {
@@ -241,9 +197,6 @@ body {
     font-size: 0.95rem;
 }
 
-/* =========================================
-   COMPÉTENCES (Badges)
-   ========================================= */
 .skills-badges {
     display: flex;
     flex-wrap: wrap;
@@ -258,7 +211,7 @@ body {
     border-radius: 50px;
     font-size: 0.95rem;
     font-weight: 500;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
     position: relative;
     cursor: pointer;
@@ -267,16 +220,15 @@ body {
 .badge:hover {
     transform: translateY(-3px);
     background-color: var(--color-accent-hover);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Infobulle - Texte */
 .badge::after {
     content: attr(data-tooltip);
     position: absolute;
-    bottom: calc(100% + 12px); /* Espace pour la flèche */
+    bottom: calc(100% + 12px);
     left: 50%;
-    transform: translateX(-50%) translateY(10px); /* Animation de bas en haut */
+    transform: translateX(-50%) translateY(10px);
     background-color: var(--color-accent);
     color: white;
     padding: 0.6rem 0.8rem;
@@ -292,15 +244,14 @@ body {
     visibility: hidden;
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
     z-index: 10;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     line-height: 1.4;
 }
 
-/* Infobulle - Petite flèche */
 .badge::before {
     content: '';
     position: absolute;
-    bottom: calc(100% + 6px); /* Colle parfaitement au bottom du ::after */
+    bottom: calc(100% + 6px);
     left: 50%;
     transform: translateX(-50%) translateY(10px);
     border-width: 6px;
@@ -313,7 +264,6 @@ body {
     z-index: 10;
 }
 
-/* Affichage de l'infobulle au survol (PC) ou via classe active (Mobile) */
 .badge:hover::after,
 .badge:hover::before,
 .badge.active-tooltip::after,
@@ -323,9 +273,6 @@ body {
     transform: translateX(-50%) translateY(0);
 }
 
-/* =========================================
-   PROCESSUS (Timeline horizontale)
-   ========================================= */
 .timeline {
     display: flex;
     justify-content: space-between;
@@ -344,7 +291,6 @@ body {
     background-color: var(--color-accent);
     color: white;
     border-radius: 50%;
-    /* Cercle parfait */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -363,9 +309,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* =========================================
-   CONTACT
-   ========================================= */
 .contact-container {
     max-width: 600px;
 }
@@ -410,7 +353,6 @@ body {
     outline: none;
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px rgba(10, 37, 64, 0.1);
-    /* Lueur de focus */
 }
 
 .btn-submit {
@@ -419,9 +361,6 @@ body {
     font-size: 1.1rem;
 }
 
-/* =========================================
-   FOOTER
-   ========================================= */
 .footer {
     background-color: var(--color-accent);
     color: white;
@@ -430,9 +369,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* =========================================
-   ANIMATIONS JAVASCRIPT
-   ========================================= */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -445,12 +381,54 @@ body {
 }
 
 /* =========================================
-   RESPONSIVE DESIGN (Mobiles & Tablettes)
+   STYLES PAGES SECONDAIRES
    ========================================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 2rem;
+    background: #ffffff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-logo {
+    color: #0A2540;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #0A2540;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: #888;
+    background: #ffffff;
+    border-top: 1px solid #eee;
+}
+
 @media (max-width: 768px) {
     .menu-toggle {
         display: flex;
-        /* Affiche le bouton hamburger */
     }
 
     .nav-menu {
@@ -461,12 +439,10 @@ body {
         background-color: var(--color-bg);
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         display: none;
-        /* Caché par défaut en mobile */
     }
 
     .nav-menu.active {
         display: block;
-        /* S'affiche quand la classe 'active' est ajoutée par le JS */
     }
 
     .nav-menu ul {
@@ -481,93 +457,6 @@ body {
 
     .timeline {
         flex-direction: column;
-        /* La timeline devient verticale sur mobile */
         gap: 3rem;
     }
-}
-/* ========================================
-   STYLES PAGES SECONDAIRES
-   ======================================== */
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1.2rem 2rem;
-    background: #0a0a0a;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.nav-logo {
-    color: #fff;
-    font-size: 1.2rem;
-    font-weight: 700;
-}
-
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-}
-
-.nav-links a {
-    color: #ccc;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-.nav-links a:hover {
-    color: #6c63ff;
-}
-
-.section {
-    padding: 80px 0;
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 2rem;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    color: #fff;
-    margin-bottom: 40px;
-}
-
-body {
-    background: #0a0a0a;
-}
-
-footer {
-    text-align: center;
-    padding: 2rem;
-    color: #888;
-    background: #0a0a0a;
-}
-
-.section.fade-in {
-    background: #ffffff;
-}
-
-.section-title {
-    color: #1a1a1a !important;
-}
-
-/* Fix fond pages secondaires */
-.navbar ~ main .section,
-main .section {
-    background: #ffffff !important;
-    color: #1a1a1a !important;
-}
-
-main .section p,
-main .section h2,
-main .section h3,
-main .section h4 {
-    color: #1a1a1a !important;
 }
