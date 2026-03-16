@@ -557,3 +557,17 @@ footer {
 .section-title {
     color: #1a1a1a !important;
 }
+
+/* Fix fond pages secondaires */
+.navbar ~ main .section,
+main .section {
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+}
+
+main .section p,
+main .section h2,
+main .section h3,
+main .section h4 {
+    color: #1a1a1a !important;
+}
