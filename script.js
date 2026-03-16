@@ -1,147 +1,99 @@
-// Attendre que tout le document HTML soit chargé avant d'exécuter le script
 document.addEventListener('DOMContentLoaded', () => {
 
-    // ---------------------------------------------------------
-    // 1. MENU MOBILE (Burger Menu)
-    // ---------------------------------------------------------
+    // 1. MENU MOBILE
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
 
-    // Quand on clique sur l'icône du menu (bouton 3 lignes) sur téléphone
-    menuToggle.addEventListener('click', () => {
-        // Alterne la présence de la classe "active" (affiche/cache le menu)
-        navMenu.classList.toggle('active');
-    });
-
-    // Fermer le menu si on clique sur un lien (sur mobile)
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            navMenu.classList.remove('active');
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
         });
-    });
 
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    }
 
-    // ---------------------------------------------------------
-    // 2. ANIMATION AU SCROLL (Apparition des éléments)
-    // ---------------------------------------------------------
-    // On sélectionne tous les éléments qui ont la classe 'fade-in'
+    // 2. ANIMATION AU SCROLL
     const fadeElements = document.querySelectorAll('.fade-in');
 
-    // On utilise IntersectionObserver pour détecter quand l'élément entre dans l'écran
     const observerOptions = {
-        root: null, // observe par rapport au viewport (l'écran)
-        threshold: 0.15, // se déclenche quand 15% de l'élément est visible
+        root: null,
+        threshold: 0.1,
         rootMargin: "0px 0px -50px 0px"
     };
 
     const scrollObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Si l'élément est visible à l'écran
             if (entry.isIntersecting) {
-                // On ajoute la classe 'visible' (voir CSS .fade-in.visible)
                 entry.target.classList.add('visible');
-                // On arrête d'observer cet élément une fois apparu (optionnel)
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // On applique l'observateur à chaque élément ".fade-in"
     fadeElements.forEach(element => {
         scrollObserver.observe(element);
     });
 
-
-    // ---------------------------------------------------------
-    // 3. GESTION DU FORMULAIRE DE CONTACT (CONNECTÉ AU BACKEND)
-    // ---------------------------------------------------------
+    // 3. FORMULAIRE DE CONTACT
     const contactForm = document.getElementById('contact-form');
 
-    // On écoute l'événement "submit" (envoi) du formulaire
     if (contactForm) {
-        // On ajoute le mot-clé "async" car on va utiliser "await" avec fetch
         contactForm.addEventListener('submit', async (event) => {
-            // On empêche le rechargement de la page par défaut
             event.preventDefault();
 
-            // On récupère le bouton pour changer son texte pendant l'envoi
             const submitButton = contactForm.querySelector('.btn-submit');
             const originalButtonText = submitButton.innerText;
-
-            // Changement purement visuel pour l'utilisateur
             submitButton.innerText = 'Envoi en cours...';
             submitButton.disabled = true;
 
-            // On récupère les valeurs entrées par l'utilisateur
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
 
             try {
-                // 1. Préparation des données à envoyer au format Objet JS
-                const formData = {
-                    name: name,
-                    email: email,
-                    message: message
-                };
+                const formData = { name, email, message };
 
-                // 2. Appel au serveur Node.js distant (API Fetch)
                 const response = await fetch('https://portfolio-pro-st6f.onrender.com/api/contact', {
-                    method: 'POST', // Le type de requête (Envoi de données)
-                    headers: {
-                        'Content-Type': 'application/json' // On indique qu'on parle en format JSON
-                    },
-                    body: JSON.stringify(formData) // On convertit notre objet JS en chaîne de caractères JSON
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
                 });
 
-                // 3. On attend que le serveur réponde et on extrait le JSON
                 const result = await response.json();
 
-                // 4. On gère le retour en fonction du succès ou non
                 if (result.success) {
                     alert('Merci ! Votre message a bien été envoyé.');
-                    contactForm.reset(); // On vide le formulaire
+                    contactForm.reset();
                 } else {
                     alert('Désolé, une erreur est survenue : ' + result.message);
                 }
-
             } catch (error) {
-                // Ce bloc capte les erreurs majeures (ex: le serveur est éteint)
                 console.error("Erreur de connexion au serveur :", error);
-                alert("Impossible de contacter le serveur. Assurez-vous qu'il est bien démarré.");
+                alert("Impossible de contacter le serveur.");
             } finally {
-                // Quoi qu'il arrive (succès ou échec), on remet le bouton à son état normal
                 submitButton.innerText = originalButtonText;
                 submitButton.disabled = false;
             }
         });
     }
 
-    // ---------------------------------------------------------
-    // 4. GESTION DES INFOBULLES (TOOLTIPS) SUR MOBILE
-    // ---------------------------------------------------------
+    // 4. TOOLTIPS
     const badges = document.querySelectorAll('.badge');
-
     badges.forEach(badge => {
-        // Au clic/toucher sur un badge
         badge.addEventListener('click', (e) => {
-            // Empêcher la propagation pour ne pas déclencher la fermeture globale immédiatement
             e.stopPropagation();
-
-            // Fermer tous les autres tooltips ouverts pour n'en garder qu'un seul visible à la fois sur mobile
             badges.forEach(b => {
-                if(b !== badge) {
-                    b.classList.remove('active-tooltip');
-                }
+                if (b !== badge) b.classList.remove('active-tooltip');
             });
-
-            // Basculer l'état du badge cliqué
             badge.classList.toggle('active-tooltip');
         });
     });
 
-    // Fermer l'infobulle ouverte si on clique/touche ailleurs sur la page
     document.addEventListener('click', () => {
         badges.forEach(badge => badge.classList.remove('active-tooltip'));
     });
