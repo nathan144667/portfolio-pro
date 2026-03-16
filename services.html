@@ -15,16 +15,16 @@
         }
 
         .service-detail-card {
-            background: #1a1a2e;
+            background: #f8f9fa;
             border-radius: 16px;
             padding: 32px;
-            border: 1px solid #2a2a4a;
+            border: 1px solid #e0e0e0;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
         .service-detail-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(108, 99, 255, 0.2);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
         .service-icon {
@@ -33,13 +33,13 @@
         }
 
         .service-detail-card h3 {
-            color: #fff;
+            color: #0A2540;
             font-size: 1.3rem;
             margin-bottom: 12px;
         }
 
         .service-detail-card p {
-            color: #aaa;
+            color: #4a5568;
             line-height: 1.7;
             margin-bottom: 16px;
         }
@@ -51,20 +51,20 @@
         }
 
         .service-includes li {
-            color: #ccc;
+            color: #4a5568;
             padding: 6px 0;
             font-size: 0.9rem;
         }
 
         .service-includes li::before {
             content: "✓ ";
-            color: #6c63ff;
+            color: #0A2540;
             font-weight: bold;
         }
 
         .service-price {
             display: inline-block;
-            background: #6c63ff;
+            background: #0A2540;
             color: #fff;
             padding: 8px 20px;
             border-radius: 20px;
@@ -72,7 +72,6 @@
             margin-top: 10px;
         }
 
-        /* Process section */
         .process-section {
             margin-top: 80px;
         }
@@ -82,21 +81,20 @@
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 24px;
             margin-top: 40px;
-            position: relative;
         }
 
         .process-step {
-            background: #1a1a2e;
+            background: #f8f9fa;
             border-radius: 16px;
             padding: 28px;
             text-align: center;
-            border: 1px solid #2a2a4a;
+            border: 1px solid #e0e0e0;
         }
 
-        .step-number {
+        .process-step .step-number {
             width: 48px;
             height: 48px;
-            background: #6c63ff;
+            background: #0A2540;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -108,37 +106,36 @@
         }
 
         .process-step h4 {
-            color: #fff;
+            color: #0A2540;
             margin-bottom: 10px;
         }
 
         .process-step p {
-            color: #aaa;
+            color: #4a5568;
             font-size: 0.9rem;
             line-height: 1.6;
         }
 
-        /* FAQ */
         .faq-section {
             margin-top: 80px;
         }
 
         .faq-item {
-            background: #1a1a2e;
+            background: #f8f9fa;
             border-radius: 12px;
             padding: 24px;
             margin-bottom: 16px;
-            border: 1px solid #2a2a4a;
+            border: 1px solid #e0e0e0;
             cursor: pointer;
         }
 
         .faq-item h4 {
-            color: #fff;
+            color: #0A2540;
             margin-bottom: 10px;
         }
 
         .faq-item p {
-            color: #aaa;
+            color: #4a5568;
             line-height: 1.7;
         }
 
@@ -146,9 +143,8 @@
             text-align: center;
             margin-top: 80px;
             padding: 60px;
-            background: #1a1a2e;
+            background: #0A2540;
             border-radius: 20px;
-            border: 1px solid #2a2a4a;
         }
 
         .cta-section h3 {
@@ -158,13 +154,13 @@
         }
 
         .cta-section p {
-            color: #aaa;
+            color: #ccc;
             margin-bottom: 30px;
         }
 
         .btn-cta {
-            background: #6c63ff;
-            color: #fff;
+            background: #fff;
+            color: #0A2540;
             padding: 14px 36px;
             border-radius: 8px;
             text-decoration: none;
@@ -175,7 +171,7 @@
         }
 
         .btn-cta:hover {
-            background: #5a52d5;
+            background: #f0f0f0;
             transform: translateY(-2px);
         }
     </style>
@@ -198,14 +194,12 @@
         <section class="section fade-in">
             <div class="container">
 
-                <!-- Titre -->
                 <h2 class="section-title">Mes Services</h2>
-                <p style="text-align:center; color:#aaa; max-width:600px; margin: 0 auto;">
+                <p style="text-align:center; color:#4a5568; max-width:600px; margin: 0 auto;">
                     Je crée des sites web professionnels et des automatisations sur mesure pour les entreprises qui
                     veulent gagner du temps et attirer plus de clients.
                 </p>
 
-                <!-- Cards services -->
                 <div class="services-detail">
 
                     <div class="service-detail-card">
@@ -255,7 +249,6 @@
 
                 </div>
 
-                <!-- Process -->
                 <div class="process-section">
                     <h2 class="section-title">Comment je travaille</h2>
                     <div class="process-steps">
@@ -291,7 +284,6 @@
                     </div>
                 </div>
 
-                <!-- FAQ -->
                 <div class="faq-section">
                     <h2 class="section-title">Questions fréquentes</h2>
 
@@ -321,7 +313,6 @@
 
                 </div>
 
-                <!-- CTA -->
                 <div class="cta-section">
                     <h3>Prêt à lancer votre projet ?</h3>
                     <p>Contactez-moi dès aujourd'hui pour un appel découverte gratuit de 30 minutes.</p>
