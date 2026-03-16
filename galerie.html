@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie | Nathan Cottais</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .galerie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .galerie-card {
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .galerie-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .galerie-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .galerie-card-info {
+            padding: 16px;
+        }
+
+        .galerie-card-info h3 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .galerie-card-info p {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #6c63ff;
+            color: #fff;
+            font-size: 0.75rem;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 80%;
+            max-height: 70vh;
+            border-radius: 12px;
+        }
+
+        .lightbox-title {
+            color: #fff;
+            margin-top: 16px;
+            font-size: 1.2rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">Nathan Cottais</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="galerie.html">Galerie</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section fade-in">
+            <div class="container">
+                <h2 class="section-title">Mes Projets</h2>
+
+                <div class="galerie-grid">
+
+                    <div class="galerie-card" onclick="openLightbox('images/projet1.png', 'Site Vitrine - Restaurant')">
+                        <img src="images/projet1.png" alt="Projet 1"
+                            onerror="this.src='https://via.placeholder.com/400x200/1a1a2e/6c63ff?text=Projet+1'">
+                        <div class="galerie-card-info">
+                            <h3>Site Vitrine - Restaurant</h3>
+                            <p>Site complet avec menu, réservation et galerie photos.</p>
+                            <span class="tag">Site Web</span>
+                        </div>
+                    </div>
+
+                    <div class="galerie-card"
+                        onclick="openLightbox('images/projet2.png', 'Automatisation - Facturation')">
+                        <img src="images/projet2.png" alt="Projet 2"
+                            onerror="this.src='https://via.placeholder.com/400x200/1a1a2e/6c63ff?text=Projet+2'">
+                        <div class="galerie-card-info">
+                            <h3>Automatisation - Facturation</h3>
+                            <p>Workflow Make qui génère et envoie des factures automatiquement.</p>
+                            <span class="tag">Automatisation</span>
+                        </div>
+                    </div>
+
+                    <div class="galerie-card" onclick="openLightbox('images/projet3.png', 'Portfolio Photographe')">
+                        <img src="images/projet3.png" alt="Projet 3"
+                            onerror="this.src='https://via.placeholder.com/400x200/1a1a2e/6c63ff?text=Projet+3'">
+                        <div class="galerie-card-info">
+                            <h3>Portfolio Photographe</h3>
+                            <p>Site galerie avec lightbox et formulaire de contact.</p>
+                            <span class="tag">Site Web</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="lightbox-close">✕</span>
+        <img id="lightbox-img" src="" alt="">
+        <p class="lightbox-title" id="lightbox-title"></p>
+    </div>
+
+    <footer>
+        <p>© 2025 Nathan Cottais</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function openLightbox(src, title) {
+            document.getElementById('lightbox-img').src = src;
+            document.getElementById('lightbox-title').textContent = title;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>
